@@ -42,7 +42,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        let tracker = AKFrequencyTracker.init(input, hopSize: 512, peakCount: 20)
+        let tracker = AKFrequencyTracker.init(player, hopSize: 512, peakCount: 20)
         if let file = try? AKAudioFile(readFileName: "bassClipCR.wav") {
             player = AKPlayer(audioFile: file)
             player.completionHandler = { Swift.print("completion callback has been triggered!") }
@@ -73,6 +73,8 @@ class ViewController: UIViewController {
             //
             booster = AKBooster(distMixer)
             booster?.gain = 0.0
+            
+            
             
             AudioKit.output = booster
             
