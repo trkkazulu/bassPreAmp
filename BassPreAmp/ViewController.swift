@@ -42,7 +42,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        let tracker = AKFrequencyTracker.init(player, hopSize: 512, peakCount: 20)
+        // let tracker = AKFrequencyTracker.init(player, hopSize: 512, peakCount: 20)
+        
         if let file = try? AKAudioFile(readFileName: "bassClipCR.wav") {
             player = AKPlayer(audioFile: file)
             player.completionHandler = { Swift.print("completion callback has been triggered!") }
@@ -54,7 +55,7 @@ class ViewController: UIViewController {
             //    //MARK: - Eq settings
             //    /***************************************************************/
             //
-            filterBand2 = AKEqualizerFilter(input, centerFrequency: 35, bandwidth: 44.7, gain: 0.0)
+            filterBand2 = AKEqualizerFilter(player, centerFrequency: 35, bandwidth: 44.7, gain: 0.0)
             filterBand3 = AKEqualizerFilter(filterBand2, centerFrequency: 65, bandwidth: 70.8, gain: 0.0)
             let filterBand4 = AKEqualizerFilter(filterBand3, centerFrequency: 125, bandwidth: 141, gain: 2.0)
             let filterBand5 = AKEqualizerFilter(filterBand4, centerFrequency: 250, bandwidth: 282, gain: 0.022)
