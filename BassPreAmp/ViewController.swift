@@ -26,7 +26,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var resSlider: UISlider!
     @IBOutlet weak var cfSlider: UISlider!
     
-    var input = AKMicrophone()
     var player = AKPlayer()
     var loFilter: AKMoogLadder?
     var distMixer: AKDryWetMixer?
@@ -65,7 +64,7 @@ class ViewController: UIViewController {
             //    //MARK: - Dist settings
             //    /***************************************************************/
             //
-            let callousness = AKDistortion(input, delay: 0.1, decay: 0.5, delayMix: 0.5, decimation: 0.0, rounding: 0.5, decimationMix: 0.0, linearTerm: 0.5, squaredTerm: 2.0, cubicTerm: 2.5, polynomialMix: 0.5, ringModFreq1: 700.6, ringModFreq2: 1400.8, ringModBalance: 0.5, ringModMix: 0.0, softClipGain: 3.5, finalMix: 0.3)
+            let callousness = AKDistortion(player, delay: 0.1, decay: 0.5, delayMix: 0.5, decimation: 0.0, rounding: 0.5, decimationMix: 0.0, linearTerm: 0.5, squaredTerm: 2.0, cubicTerm: 2.5, polynomialMix: 0.5, ringModFreq1: 700.6, ringModFreq2: 1400.8, ringModBalance: 0.5, ringModMix: 0.0, softClipGain: 3.5, finalMix: 0.3)
             
             distMixer = AKDryWetMixer(filterBand7, callousness, balance: 0.0)
             
