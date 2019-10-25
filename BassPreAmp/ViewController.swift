@@ -7,6 +7,8 @@
 //
 /*
  This is sounding very good right now in headphones. It may be time to deploy to the iPad and try on the amp. I need to add the hardware input to this. Maybe i should include a switch between the audio interface and the file player so that i can have both? I'm also going to add an AKFreqTkr for a display of the audio waveform.
+ 
+ There isn't any Audiobus code in this version. 
  */
 
 import UIKit
