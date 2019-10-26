@@ -37,7 +37,7 @@ class ViewController: UIViewController {
     var filterBand7: AKEqualizerFilter?
     var booster: AKBooster?
     var silence: AKBooster?
-    var input: AKMicrophone?
+   
     
     
     
@@ -76,6 +76,7 @@ class ViewController: UIViewController {
             //    //MARK: - Output
             //    /***************************************************************/
             //
+            
             booster = AKBooster(distMixer)
             booster?.gain = 0.0
             
@@ -126,21 +127,6 @@ class ViewController: UIViewController {
     @IBAction func edgeSliderMoved(_ sender: UISlider) {
         let edgeVal = filterBand7?.gain = Double(sender.value * 4)
         print("Edge value \(sender.value)")
-    }
-    
-    @IBAction func switchToInput(_ sender: UIButton) {
-        
-        if startBtn.isHidden == false {
-            startBtn.isHidden = true
-            stopBtn.isHidden = true
-            filterBand2 = AKEqualizerFilter(input, centerFrequency: 35, bandwidth: 44.7, gain: 0.0)
-            callousness = AKDistortion(input, linearTerm: 0.5, squaredTerm: 2.0, cubicTerm: 2.5, softClipGain: 3.5, finalMix: 0.5)
-        } else {
-            startBtn.isHidden = false
-            stopBtn.isHidden = false
-            filterBand2 = AKEqualizerFilter(player, centerFrequency: 35, bandwidth: 44.7, gain: 0.0)
-            callousness = AKDistortion(player, linearTerm: 0.5, squaredTerm: 2.0, cubicTerm: 2.5, softClipGain: 3.5, finalMix: 0.5)
-        }
     }
     
 }
