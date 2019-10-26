@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		130AEA342363C2BC0066A824 /* bassClipCR.wav in Resources */ = {isa = PBXBuildFile; fileRef = 130AEA332363C2BC0066A824 /* bassClipCR.wav */; };
 		130E489D233E738A00479375 /* bassClipCR.wav in Resources */ = {isa = PBXBuildFile; fileRef = 130E489C233E738900479375 /* bassClipCR.wav */; };
 		13584DB2233E68AC00550E12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13584DB1233E68AC00550E12 /* AppDelegate.swift */; };
 		13584DB4233E68AC00550E12 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13584DB3233E68AC00550E12 /* SceneDelegate.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		130AEA332363C2BC0066A824 /* bassClipCR.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bassClipCR.wav; sourceTree = "<group>"; };
 		130E489C233E738900479375 /* bassClipCR.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bassClipCR.wav; sourceTree = "<group>"; };
 		13584DAE233E68AC00550E12 /* BassPreAmp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BassPreAmp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13584DB1233E68AC00550E12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 		13584DB0233E68AC00550E12 /* BassPreAmp */ = {
 			isa = PBXGroup;
 			children = (
+				130AEA332363C2BC0066A824 /* bassClipCR.wav */,
 				139C7BA1234E849400B94AFD /* BassPreAmp.entitlements */,
 				13584DB1233E68AC00550E12 /* AppDelegate.swift */,
 				13584DB3233E68AC00550E12 /* SceneDelegate.swift */,
@@ -184,6 +187,7 @@
 			files = (
 				130E489D233E738A00479375 /* bassClipCR.wav in Resources */,
 				13584DC1233E68AD00550E12 /* LaunchScreen.storyboard in Resources */,
+				130AEA342363C2BC0066A824 /* bassClipCR.wav in Resources */,
 				13584DBE233E68AD00550E12 /* Assets.xcassets in Resources */,
 				13584DB9233E68AC00550E12 /* Main.storyboard in Resources */,
 			);

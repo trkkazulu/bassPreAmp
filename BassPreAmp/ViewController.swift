@@ -37,8 +37,9 @@ class ViewController: UIViewController {
     var filterBand7: AKEqualizerFilter?
     var booster: AKBooster?
     var silence: AKBooster?
+    var input: AKMicrophone?
     
-
+    
     
     override func viewDidLoad() {
         
@@ -56,7 +57,7 @@ class ViewController: UIViewController {
             //    //MARK: - Eq settings
             //    /***************************************************************/
             //
-            filterBand2 = AKEqualizerFilter(player, centerFrequency: 35, bandwidth: 44.7, gain: 0.0)
+            var filterBand2 = AKEqualizerFilter(player, centerFrequency: 35, bandwidth: 44.7, gain: 0.0)
             filterBand3 = AKEqualizerFilter(filterBand2, centerFrequency: 65, bandwidth: 70.8, gain: 0.0)
             let filterBand4 = AKEqualizerFilter(filterBand3, centerFrequency: 125, bandwidth: 141, gain: 2.0)
             let filterBand5 = AKEqualizerFilter(filterBand4, centerFrequency: 250, bandwidth: 282, gain: 0.022)
@@ -66,7 +67,9 @@ class ViewController: UIViewController {
             //    //MARK: - Dist settings
             //    /***************************************************************/
             //
-            let callousness = AKDistortion(player, delay: 0.1, decay: 0.5, delayMix: 0.5, decimation: 0.0, rounding: 0.5, decimationMix: 0.0, linearTerm: 0.5, squaredTerm: 2.0, cubicTerm: 2.5, polynomialMix: 0.5, ringModFreq1: 700.6, ringModFreq2: 1400.8, ringModBalance: 0.5, ringModMix: 0.0, softClipGain: 3.5, finalMix: 0.3)
+            
+            var callousness = AKDistortion(player, linearTerm: 0.5, squaredTerm: 2.0, cubicTerm: 2.5, softClipGain: 3.5, finalMix: 0.5)
+            
             
             distMixer = AKDryWetMixer(filterBand7, callousness, balance: 0.0)
             
@@ -75,8 +78,6 @@ class ViewController: UIViewController {
             //
             booster = AKBooster(distMixer)
             booster?.gain = 0.0
-            
-            
             
             AudioKit.output = booster
             
@@ -127,6 +128,19 @@ class ViewController: UIViewController {
         print("Edge value \(sender.value)")
     }
     
-    @IBAction func switchToInput(_ sender: Any) {
+    @IBAction func switchToInput(_ sender: UIButton) {
+        
+        if startBtn.isHidden == false {
+            startBtn.isHidden = true
+            stopBtn.isHidden = true
+            filterBand2 = AKEqualizerFilter(input, centerFrequency: 35, bandwidth: 44.7, gain: 0.0)
+            callousness = AKDistortion(input, linearTerm: 0.5, squaredTerm: 2.0, cubicTerm: 2.5, softClipGain: 3.5, finalMix: 0.5)
+        } else {
+            startBtn.isHidden = false
+            stopBtn.isHidden = false
+            filterBand2 = AKEqualizerFilter(player, centerFrequency: 35, bandwidth: 44.7, gain: 0.0)
+            callousness = AKDistortion(player, linearTerm: 0.5, squaredTerm: 2.0, cubicTerm: 2.5, softClipGain: 3.5, finalMix: 0.5)
+        }
     }
+    
 }
